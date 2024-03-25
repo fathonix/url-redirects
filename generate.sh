@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 dir=$1
 url=$2
 
