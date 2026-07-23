@@ -1,0 +1,5 @@
+*
+![0-9]*
+!gencommit.sh
+!generate.sh
+!.gitignore
