@@ -2,14 +2,19 @@
 
 set -eu
 
-dir=$1
-url=$2
+url="$@"
+dir=1
+
+while [ -d $dir ]; do
+  dir=$((dir+1))
+done
 
 mkdir $dir
-cat > $dir/index.html <<EOF
+cat > ${dir}/index.html <<EOF
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Redirecting to $url</title>
-<meta http-equiv="refresh" content="0; URL=$url">
-<link rel="canonical" href="$url">
+<title>Redirecting to ${url}</title>
+<meta http-equiv="refresh" content="0; URL=${url}">
+<link rel="canonical" href="${url}">
 EOF
+echo $dir
